@@ -1,3 +1,7 @@
+const Canvas = require("canvas");
+
+Canvas.registerFont("./Montserrat-ExtraBold.ttf", {family:'montserrat'});
+
 const [ 
   createWelcomeCard
 ] = [

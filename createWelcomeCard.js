@@ -1,7 +1,8 @@
 const Canvas = require('canvas');
 
 async function createWelcomeCard(data = {}) {
-  const { avatar = 'https://cdn.discordapp.com/embed/avatars/4.png', BigText = "WELCOME"} = data;
+  const { 
+    avatar = 'https://cdn.discordapp.com/embed/avatars/4.png', user = 'user',  discriminator = '0001', guild = 'this server'} = data;
   
   this.canvas = Canvas.createCanvas(1100, 500);
   this.ctx = this.canvas.getContext("2d");
@@ -9,17 +10,24 @@ async function createWelcomeCard(data = {}) {
   let image = await Canvas.loadImage(avatar);
   
   this.ctx.fillStyle = "#23272a";
-  this.ctx.font = "bold 85px montserrat"
+  this.ctx.font = "bold 85px montserrat";
   
   this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height);
   
-  this.ctx.fillStyle = "#ffffff"
+  this.ctx.fillStyle = "#ffffff";
     
-  this.ctx.fillText(BigText, this.canvas.width/3.5 , 380);
+  this.ctx.fillText("Welcome", 335 , 380);
+  
+  this.ctx.font = "55px light";
+  this.ctx.fillText(`${user}#${discriminator}`, 400, 425);
+
+  this.ctx.font = "bold 40px regular";
+  
+  this.ctx.fillText(`Welcome ${user} to ${guild}.`, 300, 470);
   
   this.ctx.strokeStyle = "#ffffff";
   
-  this.ctx.lineWidth = 10;
+  this.ctx.lineWidth = 13;
   
   let circleSize = this.canvas.height / 4;
   

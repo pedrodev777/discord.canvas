@@ -2,7 +2,7 @@ const Canvas = require('canvas');
 
 async function createWelcomeCard(data = {}) {
   const { 
-    avatar = 'https://cdn.discordapp.com/embed/avatars/4.png', user = 'user',  discriminator = '0001', guild = 'this server'} = data;
+    avatar = 'https://cdn.discordapp.com/embed/avatars/4.png', background = '', user = 'user',  discriminator = '0001', guild = 'this server'} = data;
   
   this.canvas = Canvas.createCanvas(1100, 500);
   this.ctx = this.canvas.getContext("2d");
